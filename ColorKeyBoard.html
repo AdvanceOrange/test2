@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding : 0px ;
+            margin : 0px ;
+        }
+        html { overflow: hidden; /*强制隐藏浏览器滚动条*/}
+        body {
+            background:url(http://7xigkl.com1.z0.glb.clouddn.com/app-bg.jpg) ;
+        }
+        /*外边框*/
+        .abroadBorder {
+            /*margin :60px auto ;*/
+            padding : 10px ;
+            position : relative ;
+            margin : 460px auto;
+            width : 684px ;
+            height : 270px ;
+            box-shadow:0px 0px 20px 0px rgba(0,0,0,1);
+            background-color: black;
+            border-radius: 10px ;
+        }
+        /*~`键样式*/
+        .key_wave, .number_1, .number_2, .number_3, .number_4, .number_5, .number_6, .number_7, .number_8, .number_9, .number_0,.keybacksapce{
+            color : green ;
+            animation-name: one; /*动画名字 ， 时间 ， 执行次数*/
+            animation-duration: 0.4s;
+            animation-iteration-count: 0;
+
+            cursor:pointer ;
+            position : absolute ;
+            margin-top : 10px ;
+            width : 37px ;
+            height : 45px ;
+            border-top : 0px ;
+            border-right : 0px ;
+            border-bottom : 4px #17a393 solid ;
+            border-left : 4px #17a393 solid ;
+            border-radius : 5px ;
+        }
+        .key_wave {
+            margin-left : 10px;
+        }
+
+        .number_1 {
+            margin-left : 67px ;
+        }
+
+        .number_2 {
+            margin-left : 124px ;
+        }
+
+        .number_3 {
+            margin-left : 181px ;
+        }
+
+        .number_4 {
+            margin-left : 238px ;
+        }
+
+        .number_5 {
+            margin-left : 295px ;
+        }
+
+        .number_6 {
+            margin-left : 352px ;
+        }
+
+        .number_7 {
+            margin-left : 409px ;
+        }
+
+        .number_8 {
+            margin-left : 466px ;
+        }
+
+        .number_9 {
+            margin-left : 523px ;
+        }
+
+        .number_0 {
+            margin-left : 580px;
+        }
+
+        .keybacksapce {
+           margin-left : 637px ;
+        }
+
+        /*键盘第二排 公共样式*/
+        .key_tab, .key_q, .key_w, .key_e, .key_r, .key_t, .key_y, .key_u, .key_i, .key_o, .key_p, .key_line {
+            color : green ;
+            animation-name: one; /*动画名字 ， 时间 ， 执行次数*/
+            animation-duration: 0.4s;
+            animation-iteration-count: 0;
+
+            cursor:pointer ;
+            position : absolute ;
+            margin-top : 75px ;
+            width : 37px ;
+            height : 45px ;
+            border-top : 0px ;
+            border-right : 0px ;
+            border-bottom : 4px #17a393 solid ;
+            border-left : 4px #17a393 solid ;
+            border-radius : 5px ;
+        }
+        .key_tab {
+            margin-left : 10px ;
+            width : 50px ;
+        }
+        .key_q {
+            margin-left : 80px ;
+        }
+        .key_w {
+            margin-left : 136px ;
+        }
+        .key_e {
+            margin-left: 192px ;
+        }
+        .key_r {
+            margin-left: 248px ;
+        }
+        .key_t {
+            margin-left: 304px ;
+        }
+        .key_y {
+            margin-left: 360px ;
+        }
+        .key_u {
+            margin-left: 416px ;
+        }
+        .key_i {
+            margin-left: 472px ;
+        }
+        .key_o {
+            margin-left: 528px ;
+        }
+        .key_p {
+            margin-left: 584px ;
+        }
+        .key_line {
+            margin-left : 640px ;
+        }
+
+        /*第三盘公共样式*/
+        .key_capslk, .key_a, .key_s, .key_d, .key_f, .key_g, .key_h, .key_j, .key_k, .key_l, .key_enter {
+            color : green ;
+            animation-name: one; /*动画名字 ， 时间 ， 执行次数*/
+            animation-duration: 0.4s;
+            animation-iteration-count: 0;
+
+            cursor:pointer ;
+            position : absolute ;
+            margin-top : 140px ;
+            width : 37px ;
+            height : 45px ;
+            border-top : 0px ;
+            border-right : 0px ;
+            border-bottom : 4px #17a393 solid ;
+            border-left : 4px #17a393 solid ;
+            border-radius : 5px ;
+        }
+        .key_capslk {
+            width : 63px ;
+            margin-left : 10px ;
+        }
+        .key_a {
+            margin-left : 93px ;
+        }
+        .key_s {
+            margin-left : 150px ;
+        }
+        .key_d {
+            margin-left : 207px ;
+        }
+        .key_f {
+            margin-left : 264px ;
+        }
+        .key_g {
+            margin-left : 321px ;
+        }
+        .key_h {
+            margin-left : 378px ;
+        }
+        .key_j {
+            margin-left : 435px ;
+        }
+        .key_k {
+            margin-left : 492px ;
+        }
+        .key_l {
+            margin-left : 549px ;
+        }
+        .key_enter {
+            width : 63px ;
+            margin-left : 606px ;
+        }
+        /*第四排公共样式*/
+        .key_shift, .key_alt, .key_rightbrackets,.key_z, .key_x, .key_c, .key_v, .key_b, .key_n, .key_m, .key_leftbrackets{
+            background-color: black;
+            cursor:pointer ;
+            position : absolute ;
+            margin-top : 205px ;
+            width : 37px ;
+            height : 45px ;
+            border-top : 0px ;
+            border-right : 0px ;
+            border-bottom : 4px #17a393 solid ;
+            border-left : 4px #17a393 solid ;
+            border-radius : 5px ;
+            color : green;
+            /*animation-name: one; !*动画名字 ， 时间 ， 执行次数*!*/
+            /*animation-duration: 0.4s;*/
+            /*animation-iteration-count: 0;*/
+        }
+        @keyframes one {
+            from {color : green ;}
+            to {color : white ;}
+        }
+
+        @keyframes two {
+            from {color : white ;}
+            to {color : green ;}
+        }
+
+        @keyframes showinput {
+            from {margin:460px auto;opacity: 0.0}
+            to {margin:60px auto;opacity:1.0}
+        }
+
+        @keyframes onshowinput {
+            from {margin:60px auto;opacity: 1.0}
+            to {margin:460px auto;opacity: 0.0}
+        }
+
+        .key_shift {
+            width : 76px ;
+            margin-left : 10px ;
+        }
+        .key_z {
+            margin-left : 106px ;
+        }
+        .key_x {
+            margin-left : 162px ;
+        }
+        .key_c {
+            margin-left : 218px ;
+        }
+        .key_v {
+            margin-left : 274px ;
+        }
+        .key_b {
+            margin-left : 330px ;
+        }
+        .key_n {
+            margin-left : 386px;
+        }
+        .key_m {
+            margin-left : 442px ;
+        }
+        .key_leftbrackets {
+            margin-left : 498px ;
+        }
+        .key_rightbrackets {
+            margin-left: 555px ;
+        }
+        .key_alt {
+            width : 65px ;
+            margin-left: 612px ;
+        }
+        .font {
+            text-shadow:0px 0px 3px white;
+            margin: auto ;
+            text-align : center ;
+            font-size : 24px ;
+            font-family: "微软雅黑";
+            line-height:45px;
+            overflow:hidden;
+            /*color:black ;*/
+            /*transition-property: color ;*/
+            /*transition-duration: 1.6s;*/
+            /*transition-timing-function:ease;*/
+            /*color : white ;*/
+        }
+        .test {
+            width : 800px ;
+            height: 300px ;
+            background-image:-webkit-linear-gradient(right, red, blue),-webkit-linear-gradient(right, black, white);
+            /*-webkit-animation: shine 1s linear 2s infinite alternate;   !*给背景添加动画改变位置*!*/
+        }
+        @-webkit-keyframes shine {
+           from {background-image:radial-gradient(rgba(255,255,255,0.0) 1%,rgba(255,255,255,0.0) 1%,rgba(255,255,255,0.0) 1%,rgba(255,255,255,0.9) ,rgba(255,255,255,0.0),rgba(255,255,255,0.0),rgba(255,255,255,0.0)) ;}
+
+            to {background-image:radial-gradient(rgba(255,255,255,0.0) 4%,rgba(255,255,255,0.0) 4%,rgba(255,255,255,0.0) 4%,rgba(255,255,255,0.9) ,rgba(255,255,255,0.0),rgba(255,255,255,0.0),rgba(255,255,255,0.0)) ;}
+        }
+        .show {
+            width : 800px ;
+            height : 200px ;
+            margin : 10px auto ;
+            text-align:center;
+            padding : 20px ;
+
+        }
+        .info {
+            color : #62bfff;
+            text-shadow: 0px 0px 10px black;
+            width : 800px ;
+            text-align : center ;
+            margin : 0px auto ;
+            font-family: "微软雅黑 Light";
+            font-weight: 200;
+            font-size : 40px ;
+            display:block;
+        }
+        .inputtext {
+            border:1px white solid ;
+            margin : 40px ;
+            font-size: 40px ;
+            border-radius : 5px ;
+            background-color: rgba(255,255,255,0.5);
+            width : 600px ;
+            height: 50px ;
+            font-family: "等线 Light";
+            font-weight: 200;
+            font-size : 20px ;
+        }
+    </style>
+</head>
+<body bgcolor="#191970" onkeydown="keyListener(event);">
+    <div class="show">
+        <span class="info">切换英文输入，向你展示波纹跑马灯效果</span>
+        <input class="inputtext" id="inputtext" onfocus="Finput()" onblur="Binput()" type="text"/>
+        <span class="info">-BY 进击的橙子君</span>
+    </div>
+    <!--外边框-->
+    <div class="abroadBorder" id="abroadBorder">
+        <div class="key_wave">
+            <div class="font">~</div>
+        </div>
+        <div class="number_1" id="number_1">
+            <div class="font">1</div>
+        </div>
+        <div class="number_2">
+            <div class="font">2</div>
+        </div>
+        <div class="number_3">
+            <div class="font">3</div>
+        </div>
+        <div class="number_4">
+            <div class="font">4</div>
+        </div>
+        <div class="number_5">
+            <div class="font">5</div>
+        </div>
+        <div class="number_6">
+            <div class="font">6</div>
+        </div>
+        <div class="number_7">
+            <div class="font">7</div>
+        </div>
+        <div class="number_8">
+            <div class="font">8</div>
+        </div>
+        <div class="number_9">
+            <div class="font">9</div>
+        </div>
+        <div class="number_0">
+            <div class="font">0</div>
+        </div>
+        <div class="keybacksapce">
+            <div class="font">←</div>
+        </div>
+        <div class="key_tab">
+            <div class="font">Tab</div>
+        </div>
+        <div class="key_q">
+            <div class="font">Q</div>
+        </div>
+        <div class="key_w">
+            <div class="font">W</div>
+        </div>
+        <div class="key_e">
+            <div class="font">E</div>
+        </div>
+        <div class="key_r">
+            <div class="font">R</div>
+        </div>
+        <div class="key_t">
+            <div class="font">T</div>
+        </div>
+        <div class="key_y">
+            <div class="font">Y</div>
+        </div>
+        <div class="key_u">
+            <div class="font">U</div>
+        </div>
+        <div class="key_i">
+            <div class="font">I</div>
+        </div>
+        <div class="key_o">
+            <div class="font">O</div>
+        </div>
+        <div class="key_p">
+            <div class="font">P</div>
+        </div>
+        <div class="key_line">
+            <div class="font">\</div>
+        </div>
+        <div class="key_capslk">
+            <div class="font">CLK</div>
+        </div>
+        <div class="key_a">
+            <div class="font">A</div>
+        </div>
+        <div class="key_s">
+            <div class="font">S</div>
+        </div>
+        <div class="key_d">
+            <div class="font">D</div>
+        </div>
+        <div class="key_f">
+            <div class="font">F</div>
+        </div>
+        <div class="key_g">
+            <div class="font">G</div>
+        </div>
+        <div class="key_h">
+            <div class="font">H</div>
+        </div>
+        <div class="key_j">
+            <div class="font">J</div>
+        </div>
+        <div class="key_k">
+            <div class="font">K</div>
+        </div>
+        <div class="key_l">
+            <div class="font">L</div>
+        </div>
+        <div class="key_enter">
+            <div class="font">Enter</div>
+        </div>
+        <div class="key_shift">
+            <div class="font">Shift</div>
+        </div>
+        <div class="key_z">
+            <div class="font">Z</div>
+        </div>
+        <div class="key_x">
+            <div class="font">X</div>
+        </div>
+        <div class="key_c">
+            <div class="font">C</div>
+        </div>
+        <div class="key_v">
+            <div class="font">V</div>
+        </div>
+        <div class="key_b">
+            <div class="font">B</div>
+        </div>
+        <div class="key_n">
+            <div class="font">N</div>
+        </div>
+        <div class="key_m">
+            <div class="font">M</div>
+        </div>
+        <div class="key_leftbrackets">
+            <div class="font"><</div>
+        </div>
+        <div class="key_rightbrackets">
+            <div class="font">></div>
+        </div>
+        <div class="key_alt">
+            <div class="font">Alt</div>
+        </div>
+    </div>
+
+<!--<div class="test">-->
+    <!--<h1 style="text-shadow:0px 0px 10px white;">11</h1></div>-->
+<script>
+    var abroadBorder = document.getElementById("abroadBorder") ;
+    //输入框获得焦点
+    function Finput(){
+        abroadBorder.style.animationName = "showinput" ; //播放显示动画
+        abroadBorder.style.animationDuration = "1s" ;
+        abroadBorder.style.animationIterationCount = "1" ;
+        abroadBorder.style.margin = "60px auto" ;
+    }
+    //输入框失去焦点
+    function Binput(){
+        abroadBorder.style.animationName = "onshowinput" ; //播放显示动画
+        abroadBorder.style.animationDuration = "1s" ;
+        abroadBorder.style.animationIterationCount = "1" ;
+        abroadBorder.style.margin = "460px auto" ;
+    }
+    <!--获得abroadBorder所有同级子元素-->
+    var childArr=document.getElementById("abroadBorder").children;
+    //声明一个数组保存所有元素
+    var arr = new Array();
+    //键盘输入事件监听
+    function keyListener(event){
+        //alert(event.keyCode) ;
+//        if (event.ctrlKey && event.keyCode === 86){
+//            alert('你按下了CTRL+V');
+//        }
+        switch (event.keyCode) {
+            case 192 ://~
+                createParallellines(38) ;
+                break ;
+            case 49 ://1
+                createParallellines(95) ;
+                break ;
+            case 50 ://2
+                createParallellines(152) ;
+                break ;
+            case 51 ://3
+                createParallellines(209) ;
+                break ;
+            case 52 ://4
+                createParallellines(266) ;
+                break ;
+            case 53 ://5
+                createParallellines(323) ;
+                break ;
+            case 54 ://6
+                createParallellines(380) ;
+                break ;
+            case 55 ://7
+                createParallellines(437) ;
+                break ;
+            case 56 ://8
+                createParallellines(494) ;
+                break ;
+            case 57 ://9
+                createParallellines(551) ;
+                break ;
+            case 48 ://0
+                createParallellines(608) ;
+                break ;
+            case 8 ://backspace
+                createParallellines(665) ;
+                break ;
+
+
+            case 9 ://tab
+                createParallellines(45) ;
+                break ;
+            case 81 ://q
+                createParallellines(108) ;
+                break ;
+            case 87 ://w
+                createParallellines(164) ;
+                break ;
+            case 69 ://e
+                createParallellines(220) ;
+                break ;
+            case 82 ://r
+                createParallellines(276) ;
+                break ;
+            case 84 ://t
+                createParallellines(332) ;
+                break ;
+            case 89 ://y
+                createParallellines(388) ;
+                break ;
+            case 85 ://u
+                createParallellines(444) ;
+                break ;
+            case 73 ://i
+                createParallellines(500) ;
+                break ;
+            case 79 ://o
+                createParallellines(556) ;
+                break ;
+            case 80 ://p
+                createParallellines(612) ;
+                break ;
+            case 220 :// |\
+                createParallellines(668) ;
+                break ;
+            case 20 ://CLK
+                createParallellines(51) ;
+                break ;
+            case 65 ://a
+                createParallellines(121) ;
+                break ;
+            case 83 ://s
+                createParallellines(178) ;
+                break ;
+            case 68 ://d
+                createParallellines(235) ;
+                break ;
+            case 70 ://f
+                createParallellines(292) ;
+                break ;
+            case 71 ://g
+                createParallellines(349) ;
+                break ;
+            case 72 ://h
+                createParallellines(406) ;
+                break ;
+            case 74 ://j
+                createParallellines(463) ;
+                break ;
+            case 75 ://k
+                createParallellines(520) ;
+                break ;
+            case 76 ://l
+                createParallellines(577) ;
+                break ;
+            case 13 || 108 ://enter
+                createParallellines(647) ;
+                break ;
+            case 16 ://shift
+                createParallellines(58) ;
+                break ;
+            case 90 ://z
+                createParallellines(134) ;
+                break ;
+            case 88 ://x
+                createParallellines(190) ;
+                break ;
+            case 67 ://c
+                createParallellines(246) ;
+                break ;
+            case 86 ://v
+                createParallellines(302) ;
+                break ;
+            case 66 ://b
+                createParallellines(358) ;
+                break ;
+            case 78 ://n
+                createParallellines(414) ;
+                break ;
+            case 77 ://m
+                createParallellines(470) ;
+                break ;
+            case 188 :// <
+                createParallellines(526) ;
+                break ;
+            case 190 :// >
+                createParallellines(583) ;
+                break ;
+            case 18 ://alt
+                createParallellines(680) ;
+                break ;
+            default :
+                null ;
+        }
+    }
+
+
+        //声明Map集合，此集合拥有极高的查找速度
+       // var map = new Map();
+        //使用循环遍历childArr所有元素，添加一个新的属性offsetRight获得右界限，并保存在arr数组里面
+        for (var i = 0; i < childArr.length; i ++) {
+            arr.push(childArr[i]) ;
+            if (childArr[i].className == "key_tab") { //如果是tab按键
+                childArr[i].offsetRight = childArr[i].offsetLeft + 50 ;
+            } else if (childArr[i].className == "key_capslk") {//如果是CLK按键
+                childArr[i].offsetRight = childArr[i].offsetLeft + 63 ;
+            } else if (childArr[i].className == "key_enter") {//如果是Enter键
+                childArr[i].offsetRight = childArr[i].offsetLeft + 63 ;
+            } else if (childArr[i].className == "key_shift") {//如果是shift按键
+                childArr[i].offsetRight = childArr[i].offsetLeft + 76 ;
+            } else if (childArr[i].className == "key_capslk") {//如果是tab按键
+                childArr[i].offsetRight = childArr[i].offsetLeft + 65 ;
+            } else {                                            //其余所有按键
+                childArr[i].offsetRight = childArr[i].offsetLeft + 37 ;
+            }
+            //保存在map集合中
+           // map.set(childArr[i].className,childArr[i]) ;
+            //        arr.push(childArr[i].offsetRight=)
+                //   console.log((("计算中心位置："+(parseFloat(childArr[i].offsetRight) - parseFloat(childArr[i].offsetLeft)) /2 )) +"元素名："+ childArr[i].className+"   相对坐标:x"+childArr[i].offsetLeft +"---"+childArr[i].offsetRight+"，y:"+childArr[i].offsetTop) ;
+        }
+
+    /**
+     *
+     * @param Location 当前元素的水平中心位置
+     */
+    function createParallellines(Location) {
+        var left_x = Location ;
+        var right_x = Location ;
+        var sInt = setInterval(
+                function() {
+                    left_x -= 10.6 ; //每次执行左平行线向左移动一个像素
+                    right_x += 10.6 ; //每次执行右平行线向右移动一个像素
+                    testRange(right_x,left_x) ;
+                    console.log("正在执行中.....") ;
+                    if (right_x > 684 && left_x < 0) {
+                        clearInterval(sInt); //停止执行
+                    }
+                }
+                ,
+                0
+        ) ;
+    }
+
+    //判断right_x,left_x是否在某个元素范围内,right_x是左平行线，left_x是右平行线
+    function testRange(right_x, left_x) {
+
+        console.log(left_x+right_x+"___"+arr.length) ;
+        for (var i = 0; i < arr.length; i++) {
+            var thisarr = arr[i] ;//获得当前循环到的按键
+            //左或右平行线在某个元素的范围之内
+            if (right_x > thisarr.offsetLeft && right_x < thisarr.offsetRight) {
+                //将当前元素的文字颜色设置
+                //thisarr.className = "an" ;
+                //-----thisarr.style.color = "red" ;
+                thisarr.style.animationName = "one" ;
+
+                thisarr.style.animationDuration = "0.5s" ;
+                thisarr.style.animationIterationCount = "1" ;
+               // thisarr.style.backgroundColor = "rgba(255,255,255,0.5)" ;
+            } else if(left_x > thisarr.offsetLeft && left_x < thisarr.offsetRight) {
+                //------thisarr.style.color = "red" ;
+                thisarr.style.animationName = "one" ;
+
+                thisarr.style.animationDuration = "0.5s" ;
+                thisarr.style.animationIterationCount = "1" ;
+               // thisarr.style.backgroundColor = "rgba(255,255,255,0.5)" ;
+//                thisarr.style.color = "black" ;
+            } else {
+                thisarr.style.animationName = "two" ;
+
+                thisarr.style.animationDuration = "1.2s" ;
+                thisarr.style.animationIterationCount = "1" ;
+               // thisarr.style.backgroundColor = "black" ;
+                //this.arr.className = "buan" ;
+               //thisarr.style.color = "green" ;
+                //thisarr.style.backgroundColor = "black" ;
+                thisarr.style.color = "green" ;
+            }
+//
+//            if (left_x >= thisarr.offsetRight && left_x <= thisarr.offsetLeft) {
+//                //将当前元素的文字颜色设置
+//                thisarr.style.color = "red" ;
+//            } else {
+//                thisarr.style.color = "black" ;
+//            }
+        }
+    }
+</script>
+</body>
+</html>
